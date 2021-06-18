@@ -8,7 +8,7 @@
 import UIKit
 import Speech
 
-class ViewController: UIViewController,SFSpeechRecognizerDelegate {
+class SpeechRecognitionWithNextAndBack: UIViewController,SFSpeechRecognizerDelegate {
     @IBOutlet weak var detectedTextLabel: UILabel!
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var startButton: UIButton!
@@ -18,7 +18,22 @@ class ViewController: UIViewController,SFSpeechRecognizerDelegate {
     let request = SFSpeechAudioBufferRecognitionRequest()
     var recognitionTask: SFSpeechRecognitionTask?
     var isRecording = false
+    var index:Int = 0
+    let colorData:[String] = ["Red","Orange","Yellow","Green","Blue","Purple","Black","Gray"]
     
+    func next() -> Int{
+        if(index<colorData.count-1){
+            index=index+1
+        }
+        return index
+    }
+    
+    func back() -> Int{
+        if(index>0){
+            index=index-1
+        }
+        return index
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.requestSpeechAuthorization()
@@ -27,7 +42,7 @@ class ViewController: UIViewController,SFSpeechRecognizerDelegate {
     //MARK: - Colors
     enum Color: String {
         case Red, Orange, Yellow, Green, Blue, Purple, Black, Gray
-
+        
         var create: UIColor {
             switch self {
             case .Red:
@@ -98,20 +113,65 @@ class ViewController: UIViewController,SFSpeechRecognizerDelegate {
         }
         recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { result, error in
             if let result = result {
+                
                 let bestString = result.bestTranscription.formattedString
+                print("bestStrung \(bestString)")
                 var lastString: String = ""
                 for segment in result.bestTranscription.segments {
                     let indexTo = bestString.index(bestString.startIndex, offsetBy: segment.substringRange.location)
                     lastString = String(bestString[indexTo...])
                 }
-                self.checkForColorsSaid(resultString: lastString)
+                self.speechMatch(lastString: lastString)
             } else if let error = error {
                 self.sendAlert(title: "Speech Recognizer Error", message: "There has been a speech recognition error.")
                 print(error)
             }
         })
     }
-   
+    func speechMatch(lastString:String){
+        if(lastString.caseInsensitiveCompare("next") == .orderedSame){
+            self.checkForColorsSaid(resultString: self.colorData[self.next()])
+        }
+        if(lastString.caseInsensitiveCompare("back") == .orderedSame){
+            self.checkForColorsSaid(resultString: self.colorData[self.back()])
+        }
+        if(lastString.caseInsensitiveCompare("first") == .orderedSame){
+            self.checkForColorsSaid(resultString: self.colorData[0])
+        }
+        if(lastString.caseInsensitiveCompare("first") == .orderedSame){
+            self.checkForColorsSaid(resultString: self.colorData[0])
+        }
+        if(lastString.caseInsensitiveCompare("last") == .orderedSame){
+            self.checkForColorsSaid(resultString: self.colorData.last!)
+        }
+        if(lastString.caseInsensitiveCompare("second") == .orderedSame){
+            self.checkForColorsSaid(resultString: self.colorData[1])
+        }
+        if(lastString.caseInsensitiveCompare("two") == .orderedSame){
+            self.checkForColorsSaid(resultString: self.colorData[1])
+        }
+        if(lastString.caseInsensitiveCompare("three") == .orderedSame){
+            self.checkForColorsSaid(resultString: self.colorData[2])
+        }
+        if(lastString.caseInsensitiveCompare("third") == .orderedSame){
+            self.checkForColorsSaid(resultString: self.colorData[2])
+        }
+        if(lastString.caseInsensitiveCompare("four") == .orderedSame){
+            self.checkForColorsSaid(resultString: self.colorData[3])
+        }
+        if(lastString.caseInsensitiveCompare("five") == .orderedSame){
+            self.checkForColorsSaid(resultString: self.colorData[4])
+        }
+        if(lastString.caseInsensitiveCompare("six") == .orderedSame){
+            self.checkForColorsSaid(resultString: self.colorData[5])
+        }
+        if(lastString.caseInsensitiveCompare("sevent") == .orderedSame){
+            self.checkForColorsSaid(resultString: self.colorData[6])
+        }
+        if(lastString.caseInsensitiveCompare("eight") == .orderedSame){
+            self.checkForColorsSaid(resultString: self.colorData[7])
+        }
+    }
     //MARK: - Check Authorization Status
     func requestSpeechAuthorization() {
         SFSpeechRecognizer.requestAuthorization { authStatus in

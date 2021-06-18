@@ -13,6 +13,8 @@
 		F71D114D2679B51000E5401F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F71D114B2679B51000E5401F /* Main.storyboard */; };
 		F71D114F2679B51100E5401F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F71D114E2679B51100E5401F /* Assets.xcassets */; };
 		F71D11522679B51100E5401F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F71D11502679B51100E5401F /* LaunchScreen.storyboard */; };
+		F71D115B2679B84100E5401F /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D115A2679B84100E5401F /* SpeechRecognizer.swift */; };
+		F7DA397A267C6B5E000BCEBB /* SpeechRecognitionWithNextAndBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DA3979267C6B5E000BCEBB /* SpeechRecognitionWithNextAndBack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		F71D114E2679B51100E5401F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F71D11512679B51100E5401F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F71D11532679B51100E5401F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F71D115A2679B84100E5401F /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		F7DA3979267C6B5E000BCEBB /* SpeechRecognitionWithNextAndBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionWithNextAndBack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				F71D114E2679B51100E5401F /* Assets.xcassets */,
 				F71D11502679B51100E5401F /* LaunchScreen.storyboard */,
 				F71D11532679B51100E5401F /* Info.plist */,
+				F71D115A2679B84100E5401F /* SpeechRecognizer.swift */,
+				F7DA3979267C6B5E000BCEBB /* SpeechRecognitionWithNextAndBack.swift */,
 			);
 			path = SpeachRecognation;
 			sourceTree = "<group>";
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F71D114A2679B51000E5401F /* ViewController.swift in Sources */,
+				F71D115B2679B84100E5401F /* SpeechRecognizer.swift in Sources */,
+				F7DA397A267C6B5E000BCEBB /* SpeechRecognitionWithNextAndBack.swift in Sources */,
 				F71D11462679B51000E5401F /* AppDelegate.swift in Sources */,
 				F71D11482679B51000E5401F /* SceneDelegate.swift in Sources */,
 			);
